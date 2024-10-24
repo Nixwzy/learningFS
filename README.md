@@ -29,3 +29,8 @@ This repository is continuously updated as I progress through the course. Feel f
 Some content in this repository may be in Portuguese. (Olá! 😁) This is because the course materials and exercises are designed specifically for Portuguese-speaking learners.
 ### Note on Project Repositories
 For each project I complete during the course, I will create a separate repository to manage the project's files and history. Additionally, I will include links to these individual project repositories within this main repository. This way, I can maintain a clear overview of all my work while allowing for focused management of each project.
+**Note:** There are two files available in this repository: **NotesPT.md**, which contains notes in Portuguese, and **NotesUS.md**, which contains notes in English. You can access them by clicking the links below:
+
+- [NotesPT.md](linknotesPT)
+- [NotesUS.md](linknoteSUS)
+

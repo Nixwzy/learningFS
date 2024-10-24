@@ -25,3 +25,5 @@ Throughout the course, I'm learning the following technologies:
 
 ## Note
 This repository is continuously updated as I progress through the course. Feel free to explore the different sections as they evolve.
+### Note for Readers
+Some content in this repository may be in Portuguese. (Olá! 😁) This is because the course materials and exercises are designed specifically for Portuguese-speaking learners.

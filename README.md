@@ -27,3 +27,5 @@ Throughout the course, I'm learning the following technologies:
 This repository is continuously updated as I progress through the course. Feel free to explore the different sections as they evolve.
 ### Note for Readers
 Some content in this repository may be in Portuguese. (Olá! 😁) This is because the course materials and exercises are designed specifically for Portuguese-speaking learners.
+### Note on Project Repositories
+For each project I complete during the course, I will create a separate repository to manage the project's files and history. Additionally, I will include links to these individual project repositories within this main repository. This way, I can maintain a clear overview of all my work while allowing for focused management of each project.

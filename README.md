@@ -2,7 +2,7 @@
 There are two files available in this repository: **NotesPT.md**, which contains notes in Portuguese, and **NotesEN.md**, which contains notes in English. You can access them by clicking the links below:
 
 - [NotesPT.md](https://github.com/Nixwzy/learningFS/blob/main/notesPT.md)
-- [NotesEN.md](linknoteSUS)
+- [NotesEN.md](https://github.com/Nixwzy/learningFS/blob/main/notesEN.md)
 
 # Fullstack Development Course
 

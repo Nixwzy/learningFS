@@ -1,10 +1,13 @@
 # NotesPT.md
 
-**Disclaimer:** This document contains notes I have taken throughout my Fullstack development course. There is also a separate file available in English in the repository. You can access it here: [NotesUS.md](https://github.com/Nixwzy/learningFS/blob/main/notesEN.md).
+**Disclaimer:** This document contains notes I have taken throughout my Fullstack development course. There is also a separate file available in English in the repository. You can access it here: [NotesEN.md](https://github.com/Nixwzy/learningFS/blob/main/notesEN.md).
 
 Este arquivo contém anotações que fiz ao longo do meu curso de desenvolvimento Fullstack. Nele, estão documentados conceitos e exemplos práticos relacionados a tecnologias como PHP, Laravel, NodeJS e React. É um repositório pessoal de aprendizado, onde registro informações importantes que adquiri durante as aulas.
 
+# Curso de HTML5 e CSS
+Como introdução, este curso explora os fundamentos do desenvolvimento web, abordando desde a estruturação de documentos HTML até o uso de CSS para estilização e layout. Ao longo das aulas, são cobertos tópicos essenciais como seletores, propriedades de estilo, design responsivo e boas práticas de acessibilidade, proporcionando uma base sólida para a criação de sites modernos e funcionais.
 
+**Aviso**: O NotesPT serve como um bloco de anotações pessoal, onde registro conceitos e práticas que considero mais relevantes, podendo não conter informações exaustivas sobre todos os temas abordados no curso.
 
 ## Seletor CSS
 
@@ -272,3 +275,58 @@ POST: envia os dados no corpo da requisição (mais seguro para dados sensíveis
 
 </form>
 ```
+### Input
+
+```html
+<form action="proximaPagina.html" method="GET">
+    <input type="type" name="name"/>
+    <input type="submit">
+</form>
+```
+No caso acima, o que for colocado no input, será enviado como dado armazenado em forma de "name" para a próxima página.
+
+### Alguns tipos de Input
+
+- text
+    - email
+    - password
+- radio 
+- checkbox
+- submit
+
+E vários outros, podendo ser checados aqui: [Input Types](https://www.w3schools.com/html/html_form_input_types.asp).
+
+### Select
+
+```html
+<form action="proximaPagina.html" method="GET">
+    <select name="name">
+        <option value="value">Opção 1</option>
+        <option value="value">Opção 2</option>
+
+        <input type="submit">
+    </select>
+</form>
+```
+O submit fará com que o valor (value) selecionado através das opções do select seja enviado para a próxima página.
+
+- Atributo Selected:
+```html
+<form action="proximaPagina.html" method="GET">
+    <select name="name">
+        <option value="value">Opção 1</option>
+        <option value="value" selected>Opção 2</option>
+
+        <input type="submit">
+    </select>
+</form>
+```
+A opção que aparecerá como padrão, sempre será a primeira, caso não seja colocado o atributo selected, que torna a opção como padrão.
+
+## Input Type File
+
+Ao implementar um input type file, deve-se colocar, nos atributos de formulário, o atributo **enctype="multipart/form-data"** para o servidor conseguir receber o arquivo.
+```html
+<form method="POST" action= "example.php" enctype="multipart/form-data">
+    <input type="file" name="photo" accept="image/*" /> /* Exemplo */
+</form>

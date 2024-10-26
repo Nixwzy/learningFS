@@ -18,7 +18,7 @@ This repository serves as a place to store all the materials, projects, and exer
 Throughout the course, I'm learning the following technologies:
 - **Frontend**: HTML5, CSS3, JavaScript, TailwindCSS, ReactJS, NextJS, VueJS, Bootstrap 4, React Native, Flutter
 - **Backend**: PHP 8.3, Laravel, NodeJS, AdonisJS
-- **Databases**: SQL databases
+- **Databases**: MySQL, MariaDB, and others
 - **Version Control**: Git, GitHub
 - **Other Tools**: Docker, Firebase, Sass, WordPress
 

@@ -1,7 +1,9 @@
 
 # NotesEN.md
 
-**Disclaimer:** This document contains notes I have taken throughout my Fullstack development course. There is also a separate file available in Portuguese in the repository. You can access it here: [NotesPT.md](https://github.com/Nixwzy/learningFS/blob/main/notesPT.md).
+**Disclaimer:** This document contains notes I have taken throughout my Fullstack development course. There is also a separate file available in Portuguese in the repository. You can access it here: [NotesPT.md](https://github.com/Nixwzy/learningFS/blob/main/notesPT.md). 
+
+The NotesEN file may be updated slightly slower than NotesPT, as each entry requires translation from the original notes. While every effort is made to keep both files up to date, there might be minor delays in syncing new content between the two versions.
 
 This file contains notes I took throughout my Fullstack development course. It documents concepts and practical examples related to technologies such as PHP, Laravel, NodeJS, and React. It's a personal learning repository where I record important information acquired during the classes.
 
@@ -270,3 +272,102 @@ POST: sends the data in the request body (safer for sensitive data).
 
 </form>
 ```
+### Input
+
+```html
+<form action="nextPage.html" method="GET">
+    <input type="text" name="name"/>
+    <input type="submit">
+</form>
+```
+In the example above, whatever is entered in the input will be sent as data stored in the form of "name" to the next page.
+
+### Some Types of Input
+
+- text
+    - email
+    - password
+- radio 
+- checkbox
+- submit
+
+And many others, which can be checked here: [Input Types](https://www.w3schools.com/html/html_form_input_types.asp).
+
+### Select
+
+```html
+<form action="nextPage.html" method="GET">
+    <select name="name">
+        <option value="value">Option 1</option>
+        <option value="value">Option 2</option>
+
+        <input type="submit">
+    </select>
+</form>
+```
+The submit will cause the selected value (value) from the select options to be sent to the next page.
+
+- Selected Attribute:
+```html
+<form action="nextPage.html" method="GET">
+    <select name="name">
+        <option value="value">Option 1</option>
+        <option value="value" selected>Option 2</option>
+
+        <input type="submit">
+    </select>
+</form>
+```
+The option that will appear as default will always be the first unless the selected attribute is placed, which makes the option the default.
+
+### Input Type File
+
+When implementing an input type file, you must include, in the form attributes, the attribute **enctype="multipart/form-data"** so the server can receive the file.
+```html
+<form method="POST" action= "example.php" enctype="multipart/form-data">
+    <input type="file" name="photo" accept="image/*" /> /* Example */
+</form>
+```
+
+## Inheritance
+In CSS, inheritance allows certain styles to be passed from a parent element to its children. For example, if you set the text color on the <body> element, all child texts will inherit that color unless another, more specific rule is applied.
+
+## Specificity
+
+Specificity defines the priority of rules applied to the same element. More specific rules take precedence over less specific ones. The order of specificity, in ascending order, is generally: type selectors (elements like div, p), classes (.class), and highest, IDs (#id). If two selectors have the same specificity, the last one in the code will be applied. **An example of this:**
+
+**HTML**
+```html
+<html>
+    <body>
+    <div class="container">
+        This is some text.   <!-- Text that will be changed -->
+    </div>
+  </body>
+</html>
+```
+
+**CSS**
+
+```css
+.container {
+    color: #FF0000; /* red color */
+}
+
+/* div {
+    color: #0000FF; blue color
+}
+    This selection, if it competes with .container (class inside the div), the class wins due to the higher specificity of the .container class compared to the div element selector. That is, the red color remains. 
+
+
+body .container {
+    color: #00FF00; green color
+}
+    This selection, if it competes with .container, body .container wins due to higher specificity, as it involves both the body selector and .container. That is, the green color prevails.
+ */
+```
+
+Remember: CSS is processed from top to bottom, meaning the browser reads and applies the CSS in the order it is in the file. 
+Thus, if there are two rules with the same specificity for the same element, the last rule in the code prevails. 
+This is especially useful for overriding styles with more recent or specific rules.
+

@@ -20,7 +20,7 @@ Throughout the course, I'm learning the following technologies:
 - **Backend**: PHP 8.3, Laravel, NodeJS, AdonisJS
 - **Databases**: SQL databases
 - **Version Control**: Git, GitHub
-- **Other Tools**: Docker, Firebase, Sass, WordPress-ZP
+- **Other Tools**: Docker, Firebase, Sass, WordPress
 
 ## How to Access
 1. **Clone the repository** to your local machine:
@@ -29,11 +29,11 @@ Throughout the course, I'm learning the following technologies:
 2. **Navigate to specific folders** for exercises or projects.
 3. **Follow the instructions in individual project folders** to run or view the work.
 
-## Note
+### Currently in Progress
 This repository is continuously updated as I progress through the course. Feel free to explore the different sections as they evolve.
-### Note for Readers
+### Content Language
 Some content in this repository may be in Portuguese. (Olá! 😁) This is because the course materials and exercises are designed specifically for Portuguese-speaking learners.
-### Note on Project Repositories
+### Project Repositories
 For each project I complete during the course, I will create a separate repository to manage the project's files and history. Additionally, I will include links to these individual project repositories within this main repository. This way, I can maintain a clear overview of all my work while allowing for focused management of each project.
 
 

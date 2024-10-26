@@ -330,3 +330,46 @@ Ao implementar um input type file, deve-se colocar, nos atributos de formulário
 <form method="POST" action= "example.php" enctype="multipart/form-data">
     <input type="file" name="photo" accept="image/*" /> /* Exemplo */
 </form>
+```
+
+## Herança
+No CSS, a herança permite que alguns estilos sejam passados de um elemento pai para seus filhos. Por exemplo, se você definir a cor do texto no elemento <body>, todos os textos filhos herdarão essa cor, a menos que outra regra mais específica seja aplicada.
+
+## Especificidade
+
+A especificidade define a prioridade das regras aplicadas ao mesmo elemento. Regras mais específicas prevalecem sobre as menos específicas. A ordem de especificidade, em ordem crescente, geralmente é: seletores de tipo (elementos como div, p), classes (.classe), e, mais alto, IDs (#id). Se dois seletores têm a mesma especificidade, o último no código será aplicado. **Um exemplo disso:**
+
+**HTML**
+```html
+<html>
+    <body>
+    <div class="container">
+        Este é um texto qualquer.   <!-- Texto que será alterado -->
+    </div>
+  </body>
+</html>
+```
+
+**CSS**
+
+```css
+.container {
+    color: #FF0000; /* cor vermelha */
+}
+
+/* div {
+    color: #0000FF; cor azul
+}
+    Esta seleção, se for competir com .container (classe dentro da div), a classe ganha, por causa da especificidade mais alta da classe .container em comparação ao seletor de elemento div. Ou seja, a cor vermelha permanece. 
+
+
+body .container {
+    color: #00FF00; cor verde
+}
+    Esta seleção, se for competir com .container, body .container vence por ter maior especificidade, pois envolve tanto o seletor body quanto .container. Ou seja, a cor verde prevalece.
+ */
+```
+
+Lembrando: O CSS é processado de cima para baixo, ou seja, o navegador lê e aplica o CSS na ordem em que está no arquivo. 
+Assim, se houver duas regras com a mesma especificidade para o mesmo elemento, a última regra no código prevalece. 
+Isso é especialmente útil para substituir estilos com regras mais recentes ou específicas.

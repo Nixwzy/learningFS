@@ -1,6 +1,6 @@
 # NotesPT.md
 
-**Disclaimer:** This document contains notes I have taken throughout my Fullstack development course. There is also a separate file available in English in the repository. You can access it here: [NotesUS.md](https://github.com/Nixwzy/learningFS/blob/main/notesUS.md).
+**Disclaimer:** This document contains notes I have taken throughout my Fullstack development course. There is also a separate file available in English in the repository. You can access it here: [NotesEN.md](https://github.com/Nixwzy/learningFS/blob/main/notesEN.md).
 
 Este arquivo contém anotações que fiz ao longo do meu curso de desenvolvimento Fullstack. Nele, estão documentados conceitos e exemplos práticos relacionados a tecnologias como PHP, Laravel, NodeJS e React. É um repositório pessoal de aprendizado, onde registro informações importantes que adquiri durante as aulas.
 

@@ -1,8 +1,9 @@
 # NotesPT.md
 
-**Disclaimer:** This document contains notes I have taken throughout my Fullstack development course. There is also a separate file available in English in the repository. You can access it here: [NotesEN.md](https://github.com/Nixwzy/learningFS/blob/main/notesEN.md).
+**Disclaimer:** This document contains notes I have taken throughout my Fullstack development course. There is also a separate file available in English in the repository. You can access it here: [NotesUS.md](https://github.com/Nixwzy/learningFS/blob/main/notesUS.md).
 
 Este arquivo contém anotações que fiz ao longo do meu curso de desenvolvimento Fullstack. Nele, estão documentados conceitos e exemplos práticos relacionados a tecnologias como PHP, Laravel, NodeJS e React. É um repositório pessoal de aprendizado, onde registro informações importantes que adquiri durante as aulas.
+
 
 # Curso de HTML5 e CSS
 Como introdução, este curso explora os fundamentos do desenvolvimento web, abordando desde a estruturação de documentos HTML até o uso de CSS para estilização e layout. Ao longo das aulas, são cobertos tópicos essenciais como seletores, propriedades de estilo, design responsivo e boas práticas de acessibilidade, proporcionando uma base sólida para a criação de sites modernos e funcionais.
@@ -243,7 +244,7 @@ Uma tabela é basicamente:
     </table>
 
 ```
-## Atributos de Formulário
+## Formulário
 
 Para criar um formulário:
 ```html
@@ -473,7 +474,7 @@ body {
 ```
 Não precisando se ater apenas à cor do background, outras características podem ser adicionadas ao CSS, para adaptar o estilo da página html em relação ao tamanho disponível na tela.
 
-# @media only print
+### @media only print
 ```css
 @media only print {
     body {
@@ -483,7 +484,7 @@ Não precisando se ater apenas à cor do background, outras características pod
 ```
 O only print basicamente faz com que o estilo dentro desse media query seja modificado apenas quando a página for impressa.
 
-# @media orientation
+### @media orientation
 
 O **@media** pode ser usado para alterar o layout com base na orientação da tela, seja **landscape** (paisagem) ou **portrait** (retrato).
 
@@ -533,3 +534,21 @@ Nesse caso, a página fica assim:
 <p></p>
 <img src="assetsForNotes\portraitExample.png">
 <p></p>
+
+# @media aspect-ratio
+O @media (aspect-ratio) é uma consulta de mídia usada para aplicar estilos baseados na proporção de largura e altura da tela. </br>
+A proporção é expressa como a relação entre a largura e a altura de um dispositivo, como 16/9, 4/3, entre outros.
+
+```css
+@media (aspect-ratio: 16/9) {
+  body {
+    background-color: blue; /* quando a tela tiver uma proporção de 16:9, o background será azul */
+  }
+}
+@media (aspect-ratio: 4/3) {
+  body {
+    background-color: green; /* quando a tela tiver uma proporção de 4:3, o background será verde */
+  }
+}
+```
+

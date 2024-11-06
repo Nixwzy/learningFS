@@ -370,6 +370,166 @@ body .container {
  */
 ```
 
-Lembrando: O CSS é processado de cima para baixo, ou seja, o navegador lê e aplica o CSS na ordem em que está no arquivo. 
+**Lembrando:** O CSS é processado de cima para baixo, ou seja, o navegador lê e aplica o CSS na ordem em que está no arquivo. 
 Assim, se houver duas regras com a mesma especificidade para o mesmo elemento, a última regra no código prevalece. 
 Isso é especialmente útil para substituir estilos com regras mais recentes ou específicas.
+
+## Unidades de Medida em HTML e CSS
+**em** -> relativa (multiplicativo) ao tamanho da fonte do elemento pai. </br>
+**rem** -> relativa ao root element (elemento raiz).</br>
+**%** -> porcentagem (em relação ao elemento pai).</br>
+**vw e vh** -> viewport width e viewport height, medem a largura e altura com base no tamanho da janela de visualização.</br>
+**vmin e vmax** -> baseiam-se na menor e maior dimensão da viewport, respectivamente.</br>
+**px** -> pixels </br>
+**pt** -> points (1/72 in)</br>
+**cm** -> centímetros</br>
+**mm** -> milímetros</br>
+**ch** -> largura do caractere</br>
+
+## Object-fit
+A propriedade **object-fit** do CSS é usada para especificar como o conteúdo (geralmente imagens) de um elemento deve se ajustar ao seu container.
+
+### Valores de object-fit:
+
+1. **fill**:
+   - Este é o valor padrão.
+   - O conteúdo é esticado para preencher completamente o container, ignorando a proporção original. Isso pode fazer com que o conteúdo fique distorcido.
+     ```css
+     img {
+       object-fit: fill;
+     }
+     ```
+
+2. **contain**:
+   - O conteúdo é ajustado para caber completamente dentro do container, preservando sua proporção original. Se o conteúdo não preencher todo o espaço do container, ele será centralizado, e o espaço restante será deixado em branco.
+     ```css
+     img {
+       object-fit: contain;
+     }
+     ```
+
+3. **cover**:
+   - O conteúdo é redimensionado para cobrir todo o container, preservando sua proporção. Isso pode resultar em parte do conteúdo sendo cortada, mas garante que não haja espaços em branco no container.
+     ```css
+     img {
+       object-fit: cover;
+     }
+     ```
+
+4. **none**:
+   - O conteúdo mantém seu tamanho original, sem redimensionamento. Se o conteúdo for maior que o container, ele transbordará, e se for menor, haverá espaço vazio.
+     ```css
+     img {
+       object-fit: none;
+     }
+     ```
+
+5. **scale-down**:
+   - Este valor combina os comportamentos de none e contain. O conteúdo será redimensionado apenas se for maior que o container, mas manterá sua proporção.
+     ```css
+     img {
+       object-fit: scale-down;
+     }
+     ```
+
+## Picture source media
+Em termos de responsividade, a tag picture, junta da tag source media, ajuda ao site se adequar em relação ao tamanho da tela.
+
+```html
+<picture>
+  <source media="(min-width: 650px)" srcset="imagem1.jpg">
+  <source media="(min-width: 450px)" srcset="imagem2.jpg">
+  <img src="imagem3.jpg" alt="Imagem responsiva">
+</picture>
+```
+
+No caso acima, caso a largura da tela (sendo utilizando o min-width, poderia ser um height ou algum outro) for 650px ou mais, a imagem 1 será exibida; </br>
+Caso a largura da tela seja entre 450px e 649px, a imagem 2 será exibida;</br>
+Caso não cumpra nenhum desses requisitos e seja menor que 450px, a imagem 3 será exibida. (lembra muito o if-else statement lol)</br>
+
+## CSS: @media
+O @media é um recurso do CSS que permite adaptar o layout e o design de uma página conforme o tamanho da tela é alterado.
+Um exemplo disso:
+```css
+body {
+  background-color: green; /* cor padrão do background será verde caso nenhuma das requisições @media forem satisfeitas */
+}
+
+@media (min-width: 1000px) {
+  body {
+    background-color: blue; /* quando a tela tiver no mínimo 1000px, a cor do background será azul */
+  }
+}
+@media (min-width: 700px) and (max-width:999px) { /* quando a tela tiver entre 700 e 999 px, a cor será vermelha */
+  body {
+    background-color: red;
+  }
+}
+@media (min-width: 300px) and (max-width: 699px) { /* quando a tela estiver entre 300 e 699 px, a cor será amarela */
+  body {
+    background-color: yellow;
+  }
+}
+```
+Não precisando se ater apenas à cor do background, outras características podem ser adicionadas ao CSS, para adaptar o estilo da página html em relação ao tamanho disponível na tela.
+
+# @media only print
+```css
+@media only print {
+    body {
+        display: none;
+    }
+}
+```
+O only print basicamente faz com que o estilo dentro desse media query seja modificado apenas quando a página for impressa.
+
+# @media orientation
+
+O **@media** pode ser usado para alterar o layout com base na orientação da tela, seja **landscape** (paisagem) ou **portrait** (retrato).
+
+- Criando quatro divs (quadrados) com a classe box:
+```html
+  <body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </body>
+  ```
+  Nesse caso, eu quero que quando a tela do celular estiver em portrait, as caixas sejam exibidas em pé, e quando estiver em landscape, deitadas.</br>
+  Para isso, basta inserir o código em CSS:
+  ```css
+  body {
+  display: flex;
+  background-color: #CCC; /* definindo o fundo da página */
+}
+
+.box { /* definindo as caracteristicas das boxes */
+  width: 100px;
+  height: 100px;
+  border: 3px solid black;
+  background-color: #CDC;
+  margin: 2pt;
+}
+
+@media (orientation: landscape) { /* definindo o @media para quando estiver em modo paisagem */
+  body {
+    flex-direction: row;
+  }
+}
+
+@media (orientation: portrait) { /* definindo o @media para quando estiver em modo retrato */
+  body {
+    flex-direction: column;
+  }
+}
+```
+Nesse caso, a página fica assim:
+- Modo Paisagem:
+<p></p>
+<img src="assets\landscapeExample.png">
+<p></p>
+- Modo Retrato:
+<p></p>
+<img src="assets\portraitExample.png">
+<p></p>

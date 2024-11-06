@@ -527,9 +527,9 @@ O **@media** pode ser usado para alterar o layout com base na orientação da te
 Nesse caso, a página fica assim:
 - Modo Paisagem:
 <p></p>
-<img src="assets\landscapeExample.png">
+<img src="assetsForNotes\landscapeExample.png">
 <p></p>
 - Modo Retrato:
 <p></p>
-<img src="assets\portraitExample.png">
+<img src="assetsForNotes\portraitExample.png">
 <p></p>

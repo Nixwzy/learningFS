@@ -4,10 +4,10 @@ There are two files available in this repository: **NotesPT.md**, which contains
 - [NotesPT.md](https://github.com/Nixwzy/learningFS/blob/main/notesPT.md)
 - [NotesEN.md](https://github.com/Nixwzy/learningFS/blob/main/notesEN.md)
 
-# Fullstack Development Course
+# LearningFS
 
 ## Overview
-This repository serves as a place to store all the materials, projects, and exercises from the Fullstack Development course I'm currently studying through **B7Web**. This course covers a wide range of frontend and backend technologies, including HTML, CSS, JavaScript, databases, and server-side programming.
+This repository serves as a place to store materials, projects, and exercises from various Fullstack Development courses I am or will be studying. It currently focuses on the B7Web course but will expand as I continue learning.
 
 ## Contents
 - **Projects**: Completed projects from the course, covering different fullstack concepts.
@@ -15,7 +15,7 @@ This repository serves as a place to store all the materials, projects, and exer
 - **Notes**: Key points and summaries from lessons and tutorials.
 
 ## Technologies Covered
-Throughout the **B7Web** course, I'm learning the following technologies:
+Throughout these courses, I am learning technologies such as:
 - **Frontend**: HTML5, CSS3, JavaScript, TailwindCSS, ReactJS, NextJS, VueJS, Bootstrap 4, React Native, Flutter
 - **Backend**: PHP 8.3, Laravel, NodeJS, AdonisJS
 - **Databases**: MySQL, MariaDB, and others
@@ -30,11 +30,10 @@ Throughout the **B7Web** course, I'm learning the following technologies:
 3. **Follow the instructions in individual project folders** to run or view the work.
 
 ### Currently in Progress
-This repository is continuously updated as I progress through the **B7Web** course. Feel free to explore the sections as they evolve.
-
+This repository will continue to grow as I take more courses and update it with new materials. Feel free to explore the sections as they evolve.
 ### Content Language
 Some content in this repository may be in Portuguese. (Olá! 😁) This is because the course materials and exercises are designed specifically for Portuguese-speaking learners.
 ### Project Repositories
-For each project completed in the **B7Web** course, a separate repository is created to manage files and history. Links to individual project repositories will be provided within this main repository to keep an organized overview of all work.
+Each major project I complete during these courses will have its own repository, with links included in this main repository. This approach allows for clear documentation and focused management of each project.
 
 

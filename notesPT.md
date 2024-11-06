@@ -4,6 +4,11 @@
 
 Este arquivo contém anotações que fiz ao longo do meu curso de desenvolvimento Fullstack. Nele, estão documentados conceitos e exemplos práticos relacionados a tecnologias como PHP, Laravel, NodeJS e React. É um repositório pessoal de aprendizado, onde registro informações importantes que adquiri durante as aulas.
 
+# Objetivo com o NotesPT.md
+Tenho como principal objetivo, ao concluir certos módulos do curso e adquirir conhecimento suficiente, tornar o Notes um grande site com anotações e tópicos relacionados ao Desenvolvimento FullStack.<br>
+A ideia é construir um repositório digital completo que aborde diversos aspectos do desenvolvimento web, como Frontend, Backend, Banco de Dados, DevOps, e Boas Práticas de Programação.<br>
+A visão para o futuro é que o site seja uma referência pessoal, mas também útil para outras pessoas que estão em processo de aprendizagem.
+
 
 # Curso de HTML5 e CSS
 Como introdução, este curso explora os fundamentos do desenvolvimento web, abordando desde a estruturação de documentos HTML até o uso de CSS para estilização e layout. Ao longo das aulas, são cobertos tópicos essenciais como seletores, propriedades de estilo, design responsivo e boas práticas de acessibilidade, proporcionando uma base sólida para a criação de sites modernos e funcionais.
@@ -551,4 +556,69 @@ A proporção é expressa como a relação entre a largura e a altura de um disp
   }
 }
 ```
+### Função var em CSS
+Confusões à parte, a função var existe no CSS e serve para adicionar variáveis de estilos, para quando precisar deles, só colocar no código.</br>
+Para setar uma variável, basta realizar o comando `:root` e colocar as variáveis embaixo. Exemplo:
+```css
+:root {
+  --bg-vermelho: red; /* atenha-se à sintaxe, o : antes de root e o -- antes da variável são obrigatórios) */
+  --fonte-dezesseis: 16pt;
+}
+```
+Agora, toda vez que quiser que o background tenha a cor vermelha e a fonte seja tamanho 16pt, basta:
+```css
+.divQualquer {
+  background-color: --bg-vermelho;
+  font-size: --fonte-dezesseis;
+}
+```
 
+## Tornar um vídeo em sua página responsivo
+Tornar um vídeo (tag iframe) responsivo é uma tarefa difícil, mas existe uma forma utilizando uma técnica de aspect ratio para tornar um frame de vídeo responsivo.
+### Entendendo a matemática por trás do código
+O aspect ratio é a razão entre a largura e altura de um vídeo ou imagem. O aspect ratio mais comum é o 16:9.</br>
+Exemplo:</br>
+Uma tela com resolução de 1920x1080 tem um aspecto de 16:9 pois a largura é 16 vezes maior que a altura.<br/>
+`(1920/1080 = 16/9)`
+
+- Criando uma div para o container do vídeo (class video) e área do vídeo (class videoArea)
+```html
+<body>
+  <div class="video">
+    <div class="videoArea">
+      <iframe width="560" height="315" src="assets/videoQualquer.mp4" />
+    </div>
+  </div>
+</body>
+```
+```css
+.video {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.videoArea {
+  position: relative;
+  height: 0px;
+  background-color: green;
+  padding: 0px 0px 56.25%; /* aspect ratio de 16:9 */
+}
+
+.videoArea iframe {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  border: 0px;
+}
+```
+
+O segredo para manter a responsividade está em como utilizamos o padding no contêiner do vídeo. No caso do código acima, o `padding-top` de 56,25% é o que garante que o vídeo mantenha a proporção 16:9, independentemente do tamanho da tela.
+
+Para chegarmos nesse valor `(56,25%)`, foi necessário entender como transformar esse aspect ratio em porcentagem. Entenda dessa forma:
+$$
+\frac{9}{16} \times 100 = 56.25\%
+$$

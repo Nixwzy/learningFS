@@ -240,7 +240,7 @@ A basic table is:
     </table>
 
 ```
-## Form Attributes
+## Forms
 
 To create a form:
 ```html
@@ -367,7 +367,179 @@ body .container {
  */
 ```
 
-Remember: CSS is processed from top to bottom, meaning the browser reads and applies the CSS in the order it is in the file. 
-Thus, if there are two rules with the same specificity for the same element, the last rule in the code prevails. 
-This is especially useful for overriding styles with more recent or specific rules.
+**Note:** CSS is processed from top to bottom, meaning that the browser reads and applies CSS in the order it appears in the file. 
+So, if there are two rules with the same specificity for the same element, the last rule in the code takes precedence. 
+This is particularly useful for overriding styles with newer or more specific rules.
 
+## Units of Measurement in HTML and CSS
+**em** -> relative (multiplicative) to the font size of the parent element. </br>
+**rem** -> relative to the root element (the root element).</br>
+**%** -> percentage (relative to the parent element).</br>
+**vw and vh** -> viewport width and viewport height, measuring the width and height based on the viewport size.</br>
+**vmin and vmax** -> based on the smallest and largest dimension of the viewport, respectively.</br>
+**px** -> pixels </br>
+**pt** -> points (1/72 in)</br>
+**cm** -> centimeters</br>
+**mm** -> millimeters</br>
+**ch** -> width of the character</br>
+
+## Object-fit
+The **object-fit** property in CSS is used to specify how the content (usually images) of an element should fit within its container.
+
+### Object-fit values:
+
+1. **fill**:
+   - This is the default value.
+   - The content is stretched to completely fill the container, ignoring its original aspect ratio. This can cause the content to appear distorted.
+     ```css
+     img {
+       object-fit: fill;
+     }
+     ```
+
+2. **contain**:
+   - The content is resized to fit entirely within the container, preserving its original aspect ratio. If the content doesn't fill the entire space, it will be centered, and the remaining space will be left blank.
+     ```css
+     img {
+       object-fit: contain;
+     }
+     ```
+
+3. **cover**:
+   - The content is resized to cover the entire container, preserving its aspect ratio. This may result in part of the content being cropped, but it ensures there is no empty space within the container.
+     ```css
+     img {
+       object-fit: cover;
+     }
+     ```
+
+4. **none**:
+   - The content retains its original size, without resizing. If the content is larger than the container, it will overflow; if it is smaller, there will be empty space.
+     ```css
+     img {
+       object-fit: none;
+     }
+     ```
+
+5. **scale-down**:
+   - This value combines the behaviors of none and contain. The content will only be resized if it is larger than the container, but it will maintain its aspect ratio.
+     ```css
+     img {
+       object-fit: scale-down;
+     }
+     ```
+
+## Picture source media
+In terms of responsiveness, the **picture** tag, together with the **source** tag and **media** attribute, helps the website adjust based on the screen size.
+
+```html
+<picture>
+  <source media="(min-width: 650px)" srcset="image1.jpg">
+  <source media="(min-width: 450px)" srcset="image2.jpg">
+  <img src="image3.jpg" alt="Responsive Image">
+</picture>
+```
+In this case:
+
+If the screen width (using min-width) is 650px or more, image 1 will be displayed;</br>
+If the screen width is between 450px and 649px, image 2 will be shown;</br>
+If it doesn't meet either of these conditions and is smaller than 450px, image 3 will be shown. (It’s quite similar to an if-else statement, lol).</br>
+## CSS: @media
+The @media rule is a CSS feature that allows adapting the layout and design of a page based on changes in the screen size. Here’s an example:
+```css
+body {
+  background-color: green; /* default background color will be green unless any of the @media queries are satisfied */
+}
+
+@media (min-width: 1000px) {
+  body {
+    background-color: blue; /* when the screen is at least 1000px, the background color will be blue */
+  }
+}
+@media (min-width: 700px) and (max-width:999px) { /* when the screen is between 700px and 999px, the color will be red */
+  body {
+    background-color: red;
+  }
+}
+@media (min-width: 300px) and (max-width: 699px) { /* when the screen is between 300px and 699px, the color will be yellow */
+  body {
+    background-color: yellow;
+  }
+}
+```
+No need to focus only on the background color; other properties can also be added to adapt the page layout based on the available screen size.
+### @media onlyprint
+```css
+@media only print {
+    body {
+        display: none;
+    }
+}
+```
+The **only print** query essentially makes the style inside this media query apply only when the page is printed.
+
+### @media orientation
+The @media rule can be used to alter the layout based on the screen orientation, either landscape (horizontal) or portrait (vertical).
+
+- Creating four divs (boxes) with the class box:
+```html
+  <body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </body>
+```
+In this case, I want the boxes to be displayed vertically when the phone is in portrait mode and horizontally when it is in landscape mode.</br> To achieve this, simply add the following CSS:
+```css
+body {
+  display: flex;
+  background-color: #CCC; /* setting the background color */
+}
+
+.box { /* defining the properties for the boxes */
+  width: 100px;
+  height: 100px;
+  border: 3px solid black;
+  background-color: #CDC;
+  margin: 2pt;
+}
+
+@media (orientation: landscape) { /* defining the @media rule for landscape mode */
+  body {
+    flex-direction: row;
+  }
+}
+
+@media (orientation: portrait) { /* defining the @media rule for portrait mode */
+  body {
+    flex-direction: column;
+  }
+}
+```
+In this case, the page looks like this:
+
+Landscape mode:
+<p></p> 
+<img src="assetsForNotes\landscapeExample.png"> 
+<p></p> 
+- Portrait mode: 
+<p></p> 
+<img src="assetsForNotes\portraitExample.png"> 
+<p></p>
+
+### @media aspect-ratio
+The @media (aspect-ratio) rule is a media query used to apply styles based on the width-to-height ratio of the screen. </br> The aspect ratio is expressed as the relationship between the width and height of a device, like 16/9, 4/3, and so on.
+
+```css
+@media (aspect-ratio: 16/9) {
+  body {
+    background-color: blue; /* when the screen has a 16:9 ratio, the background will be blue */
+  }
+}
+@media (aspect-ratio: 4/3) {
+  body {
+    background-color: green; /* when the screen has a 4:3 ratio, the background will be green */
+  }
+}
+```

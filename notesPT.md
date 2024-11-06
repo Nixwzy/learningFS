@@ -482,7 +482,7 @@ Não precisando se ater apenas à cor do background, outras características pod
     }
 }
 ```
-O only print basicamente faz com que o estilo dentro desse media query seja modificado apenas quando a página for impressa.
+O **only print** basicamente faz com que o estilo dentro desse media query seja modificado apenas quando a página for impressa.
 
 ### @media orientation
 
@@ -535,7 +535,7 @@ Nesse caso, a página fica assim:
 <img src="assetsForNotes\portraitExample.png">
 <p></p>
 
-# @media aspect-ratio
+### @media aspect-ratio
 O @media (aspect-ratio) é uma consulta de mídia usada para aplicar estilos baseados na proporção de largura e altura da tela. </br>
 A proporção é expressa como a relação entre a largura e a altura de um dispositivo, como 16/9, 4/3, entre outros.
 

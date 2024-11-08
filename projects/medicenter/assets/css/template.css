@@ -1,0 +1,226 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  height: 110px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 990px;
+  /* background-color: red; */
+}
+
+.logo {
+  /* background-color: green; */
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+}
+
+nav ul,
+nav li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav a {
+  display: block;
+  /* background-color: red; */
+  padding: 15px;
+  text-decoration: none;
+  color: #727272;
+}
+
+nav .active a,
+nav a:hover {
+  background-color: #39aae1;
+  color: white;
+}
+
+/* banner */
+
+#banner {
+  display: flex;
+  justify-content: center;
+  background-image: url("../images/img1.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 670px;
+  width: 100%;
+}
+
+.column {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bannerHeadline {
+  height: 460px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background-color: red; */
+}
+
+.bannerHeadline h1 {
+  color: white;
+  font-size: 70px;
+  text-shadow: 1px 1px 0px #555;
+  max-width: 400px;
+  margin: 0;
+  padding: 0;
+}
+.bannerHeadline h2 {
+  color: white;
+  font-size: 25px;
+  text-shadow: 1px 1px 0px #555;
+  max-width: 400px;
+  margin: 0;
+  padding: 0;
+  margin-top: 40px;
+}
+.bannerOptions {
+  height: 210px;
+  display: flex;
+  /* background-color: green; */
+}
+
+.banner1,
+.banner2,
+.banner3 {
+  flex: 1;
+  color: white;
+  padding: 20px;
+}
+
+.banner1 {
+  background-color: #39aae1;
+}
+.banner2 {
+  background-color: #0079c7;
+}
+.banner3 {
+  background-color: #2b4c99;
+}
+
+.bannerTitle {
+  font-size: 21px;
+}
+
+.bannerDescription {
+  font-size: 12px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.bannerOptions a {
+  display: inline-block;
+  border: 1px solid white;
+  padding: 5px;
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+}
+
+.openingHours {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-top: 7px;
+  padding: 10px;
+  border-bottom: 1px solid #3e578f;
+}
+
+#general {
+  display: flex;
+  justify-content: center;
+  /* background-color: red; */
+}
+
+#general section {
+  flex: 2;
+}
+#general aside {
+  flex: 1;
+}
+
+.widgetTitle {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.widgetTitleText {
+  color: black;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.widgetTitleBar {
+  width: 50px;
+  height: 2px;
+  background-color: #39aae1;
+  margin-top: 10px;
+}
+
+.widgetBodyDepartments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.widgetBox {
+  width: 150px;
+  height: 150px;
+  background-color: #42b3e5;
+}
+
+.widgetBodyAppointment p {
+  font-size: 14px;
+  color: #909090;
+  line-height: 20px;
+  border-bottom: 1px solid #a7acb8;
+  padding-top: 6px;
+  padding-bottom: 25px;
+}
+
+.phone,
+.email,
+.contact {
+  border-bottom: 1px solid #a7acb8;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  color: #888888;
+}
+
+.mediaIcons a {
+  text-decoration: none;
+}
+
+.mediaIcons b {
+  color: black;
+}
+
+.mediaIcons i {
+  margin-right: 5px;
+}

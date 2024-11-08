@@ -622,3 +622,207 @@ Para chegarmos nesse valor `(56,25%)`, foi necessário entender como transformar
 $$
 \frac{9}{16} \times 100 = 56.25\%
 $$
+
+## Função calc( )
+
+Útil para layouts responsivos e cálculos dinâmicos de tamanhos.
+
+```css
+.elemento {
+  width: calc(100%- 20px); /* subtrai 50px da largura total */
+  margin: calc(10px - 2%); /* adiciona uma valor fixo com uma porcentagem */
+}
+```
+
+## Tags de Semântica
+- Header
+- Footer
+- Nav
+- Section
+- Article 
+- Aside
+- Time
+
+## @keyframes em CSS
+A regra @keyframes em CSS permite criar animações definindo as etapas (ou "frames") que o elemento passará ao longo do tempo. Cada etapa define o estado da animação em diferentes porcentagens de progresso, de 0% (início) a 100% (final). Exemplo:
+
+```css
+@keyframes exemplo {
+  0% {
+    background-color: red;
+    top: 0px;
+    left: 0px;
+  }
+  25% {
+    background-color: yellow;
+    top: 0px;
+    left: 200px;
+  }
+  50% {
+    background-color: blue;
+    top: 200px;
+    left: 200px;
+  }
+  75% {
+    background-color: green;
+    top: 200px;
+    left: 0px;
+  }
+  100% {
+    background-color: red;
+    top: 0px;
+    left: 0px;
+  }
+}
+```
+Aqui, o elemento mudará de cor e posição ao longo da animação. Para aplicar esta animação ao elemento, usamos propriedades de animação como **animation-name**, **animation-duration**, **animation-delay**, e **animation-iteration-count**:
+
+```css
+.exemplo {
+  width: 150px;
+  height: 150px;
+  background-color: red;
+  position: absolute;
+  animation-name: exemplo;
+  animation-duration: 4s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+}
+```
+Neste exemplo, a animação ocorre a cada 4 segundos, com uma pausa de 1 segundo antes de começar, e se repete infinitamente.
+
+## Transition em CSS
+
+A propriedade **transition** em CSS é usada para criar efeitos de transição suave ao alterar uma ou mais propriedades de um elemento. Ela define a duração, o estilo de transição e a propriedade que será animada.
+
+```css
+.button {
+  width: 100px;
+  height: 40px;
+  background-color: blue;
+  transition: background-color 0.5s ease;
+}
+
+.button:hover {
+  background-color: green;
+}
+```
+Neste caso, ao passar o mouse sobre .button, a cor de fundo mudará suavemente de azul para verde em 0,5 segundos. A função ease cria uma transição com uma velocidade suave.
+
+## Listas de descrição `<dl>`, `<dt>`,`<dd>`
+Cada termo (definido em `<dt>`) tem uma descrição correspondente (definida em `<dd>`).
+
+- `<dl>`: container de lista de descrição
+- `<dt>`: título
+- `<dd>`: descrição
+
+```html
+<dl>
+  <dt>HTML</dt>
+  <dd>Linguagem de marcação usada para criar páginas web.</dd>
+
+  <dt>CSS</dt>
+  <dd>Estiliza o layout das páginas web.</dd>
+
+  <dt>JavaScript</dt>
+  <dd>Linguagem de programação para adicionar interatividade.</dd>
+</dl>
+      <!-- usei chat gpt pra dar esses exemplos rsrsrs -->
+```
+## Flexbox
+```css
+.container {
+  display: flex;
+}
+```
+Os elementos são distribuídos em linha ou coluna, de acordo com o espaço disponível, ajustando-se automaticamente ao tamanho do container.
+
+### Redistribuição flex:[valor]
+
+- **Distribuição igual entre os itens:**
+
+```css
+.container {
+  display: flex;
+}
+.item {
+  flex: 1; /* tamanhos iguais para todos itens preenchendo tamanho disponível dentro do container */
+}
+```
+- **Distribuição distinta entre os itens (flex-grow):**
+
+```css
+.container {
+  display: flex;
+}
+.item1 {
+  flex: 2; /* este item crescerá duas vezes mais do que os outros */
+}
+.item2 {
+  flex: 1; /* este item crescerá uma vez, ou seja, menos que o item1 */
+}
+.item3 {
+  flex: 1; /* este item terá o mesmo crescimento que o item2 */
+}
+
+```
+
+### Order
+Reordena o item (sim.)
+```css
+.item3 { /* supondo que existam 4 itens */
+  order: 2 /* coloca o item 3 no lugar do item 2, reordenando a... ordem. */
+} /* o que era [1][2][3][4], tornou-se [1][3][2][4]
+```
+
+```css
+.container {
+  display: flex;
+}
+
+.item1 {
+  order: 0; /* Ordem inicial */
+}
+
+.item2 {
+  order: -1; /* Vai aparecer primeiro */
+}
+
+.item3 {
+  order: 1; /* Vai aparecer depois do item 1 */
+}
+
+.item4 {
+  order: 2; /* Vai aparecer depois do item 3 */
+}
+```
+
+### Propriedades do Flexbox (algumas)
+
+- `flex-direction`: define a direção dos itens
+  - `row` **(padrão)**: alinha horizontalmente
+  - `column`: alinha verticalmente
+- `justify-content`: alinha os itens ao longo do eixo principal
+  - `flex-start` : início do container
+  - `center`: centro do container
+  - `space-between`: distribui os itens com espaço igual entre eles.
+  - `space-around`: distribui os itens com espaço igual ao redor deles. </br></br>
+ 
+<div style="border: 1px solid white; border-radius: 10px; width: fit-content; padding: 10px; text-align: center; margin-left: auto; margin-right: auto;">
+  <p><b style="font-size: 20px">Para entender o próximo item:</b></p>
+  <p><b>Eixo principal:</b> Direção do flex-direction.</p>
+  <p><b>Eixo transversal:</b> Sentido perpendicular ao eixo principal.</p>
+  <p>Sendo assim, se o <b>flex-direction</b> for <b>row</b> (horizontal/linha), <b>o align-items</b> valerá para o sentido vertical.<br/>
+  <i>E vice-versa.</i>
+</div>
+</br></br>
+
+
+- `align-items`:
+  - `stretch` **(padrão)**: os itens ocupam todo o espaço disponível no eixo transversal.
+  - `center`: centraliza os itens no eixo transversal.
+  - `flex-start` e `flex-end`: alinha os itens no início ou no final do container.
+- `flex-wrap`: wrap text, decide se os itens quebram a linha ou não se não couberem no container.
+  - `nowrap` **(padrão)**: os itens ficam em uma única linha.
+  - `wrap`: os itens quebram para a linha seguinte se o espaço não for suficiente.
+- `align-self`: mesma coisa do align-items, mas para apenas um item. pode receber os mesmos valores do align-items.

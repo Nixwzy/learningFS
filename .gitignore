@@ -46,6 +46,3 @@ docker-compose.override.yml
 # PHP
 vendor/
 .env
-
-# Sass
-*.css

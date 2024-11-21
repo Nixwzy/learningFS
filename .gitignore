@@ -46,3 +46,7 @@ docker-compose.override.yml
 # PHP
 vendor/
 .env
+
+notesLOCAL.md
+assetsforCode/
+colors/

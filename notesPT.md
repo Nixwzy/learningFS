@@ -826,3 +826,243 @@ Reordena o item (sim.)
   - `nowrap` **(padrão)**: os itens ficam em uma única linha.
   - `wrap`: os itens quebram para a linha seguinte se o espaço não for suficiente.
 - `align-self`: mesma coisa do align-items, mas para apenas um item. pode receber os mesmos valores do align-items.
+
+# Curso de JavaScript
+
+Iniciado o curso de JavaScript, estarei colocando minhas anotações neste repositório até que hajam estudos práticos para serem feitos.
+
+
+## Diferença entre var, let e const
+
+### `var`
+- Escopo: Global ou da função onde foi declarada.
+- Permite redeclaração e reatribuição.
+- Comportamento peculiar: Pode ser utilizada antes de ser declarada devido ao "hoisting".
+- Exemplo:
+  ```javascript
+  console.log(a); // undefined (hoisting)
+  var a = 10;
+  console.log(a); // 10
+  ```
+
+### `let`
+- Escopo: Bloco ({...}), função ou global.
+- Permite reatribuição, mas não redeclaração no mesmo escopo.
+- Exemplo:
+  ```javascript
+  let b = 20;
+  b = 30; // OK
+  let b = 40; // Erro (não pode redeclarar no mesmo escopo)
+  ```
+
+### `const`
+- Escopo: Bloco ({...}), função ou global.
+- Não permite redeclaração nem reatribuição.
+- Ideal para valores que não devem mudar.
+- Exemplo:
+  ```javascript
+  const c = 50;
+  c = 60; // Erro (não pode reatribuir)
+  ```
+
+---
+
+## Quando usar e quando não usar
+
+### `var`
+- **Quando usar**: Evitar o uso de `var` no código moderno devido ao escopo global e comportamento imprevisível.
+- **Quando não usar**: Sempre que possível, prefira `let` ou `const`.
+
+### `let`
+- **Quando usar**: Quando o valor precisa mudar ao longo do código.
+- **Quando não usar**: Evite usar se o valor for constante e não precisa ser reatribuído.
+
+### `const`
+- **Quando usar**: Sempre que o valor não deva mudar, como configurações, constantes matemáticas ou identificadores.
+- **Quando não usar**: Quando você sabe que o valor precisará ser atualizado.
+
+---
+
+### Resumo
+- Use `const` por padrão para garantir imutabilidade.
+- Use `let` apenas quando for necessário reatribuir valores.
+- Evite `var` em código moderno.
+
+
+## (Alguns) Tipos de Variáveis
+
+### String:
+- **Definição**: Utilizada para representar textos. Sempre envolvida por aspas simples (`'`), aspas duplas (`"`) ou crases (\`\`).
+
+```javascript
+let name = "Guilherme"; // String com aspas duplas
+let city = 'Rio de Janeiro'; // String com aspas simples
+let message = `Olá, ${name}! Bem-vindo ao ${city}.`; // Template string com crases
+```
+### Number:
+- **Definição**: Representa números inteiros (int em python) e decimais (float em python).
+
+```javascript
+let age = 25; // Número inteiro
+let price = 19.99; // Número Decimal
+```
+
+### Boolean
+- **Definição**: Representa valores lógicos, podendo ser `true` ou `false`.
+```javascript
+let isLoggedIn = true; // Usuário logado
+let hasPermission = false; // Usuário não tem permissão
+```
+### Object
+- **Definição**: Utilizado para armazenar coleções de dados ou entidades mais complexas.
+```javascript
+let person = {
+  name: "Guilherme",
+  age: 21,
+  isStudent: true
+};
+```
+
+### Array
+- **Definição**: É uma lista ordenada de valores.
+```javascript
+let colors = ["red", "blue", "green"];
+```
+
+## Estrutura Condicional If / Else
+
+**Exemplo** de uma estrutura simples if/else:
+
+```javascript
+
+let idade = 21; // Variável para ser consultada;
+
+if (idade > 17) { // Condição determinada
+  console.log('Maior de idade.'); // Evento condicional
+} else {
+  console.log('Menor de idade.'); // Evento caso a condição não seja satisfeita
+}
+```
+
+## Condicional dupla If / Else
+
+```javascript
+let idade = 21;
+if (idade < 12) {
+  console.log('Criança');
+} else if (idade > 12 && idade <= 17) {
+  console.log('Adolescente');
+} else if (idade >= 18) {
+  console.log('Maior de Idade');
+}
+```
+
+## Diferença entre == e ===
+
+### `==` (Igualdade abstrata)
+- Compara dois valores, realizando **conversão de tipo** quando necessário.
+- Exemplo:
+  ```javascript
+  console.log(5 == '5'); // true (os valores são iguais, apesar de tipos diferentes)
+  ```
+
+### `===` (Igualdade estrita)
+- Compara dois valores **sem conversão de tipo**, exigindo que sejam do mesmo tipo e valor.
+- Exemplo:
+  ```javascript
+  console.log(5 === '5'); // false (número não é igual a string)
+  ```
+
+### Resumo
+Use `===` sempre que possível para evitar resultados inesperados devido à conversão automática de tipos.
+
+---
+
+## Multicondicionais: `&&` e `||`
+
+### `&&` (E lógico)
+- Retorna `true` apenas se **todas as condições forem verdadeiras**.
+- Exemplo:
+  ```javascript
+  let idade = 25;
+  let temCarteira = true;
+
+  if (idade >= 18 && temCarteira) {
+    console.log('Pode dirigir.'); // Será executado porque ambas as condições são verdadeiras
+  }
+  ```
+
+### `||` (OU lógico)
+- Retorna `true` se **ao menos uma condição for verdadeira**.
+- Exemplo:
+  ```javascript
+  let temCNH = false;
+  let temPermissaoEspecial = true;
+
+  if (temCNH || temPermissaoEspecial) {
+    console.log('Pode dirigir.'); // Será executado porque uma das condições é verdadeira
+  }
+  ```
+
+### Resumo
+- Use `&&` para exigir que **todas as condições** sejam verdadeiras.
+- Use `||` para permitir que **qualquer uma das condições** seja verdadeira.
+
+
+## Switch Case
+- **Descrição**: Utilizado para executar diferentes blocos de código com base no valor de uma variável.
+- Exemplo:
+  ```javascript
+  let cor = 'vermelho';
+
+  switch (cor) {
+    case 'azul':
+      console.log('A cor é azul.');
+      break;
+    case 'vermelho':
+      console.log('A cor é vermelha.');
+      break;
+    default:
+      console.log('Cor desconhecida.');
+  }
+  ```
+
+## Funções
+- **Descrição**: Blocos de código reutilizáveis que podem ser chamados para realizar tarefas.
+- Exemplo:
+  ```javascript
+  function soma(a, b) {
+    return a + b;
+  }
+  console.log(soma(5, 10)); // 15
+  ```
+
+## Arrow Function
+- **Descrição**: Uma forma mais concisa de escrever funções.
+- Exemplo:
+  ```javascript
+  const soma = (a, b) => a + b;
+  console.log(soma(5, 10)); // 15
+  ```
+- **Nota**: Arrow functions não possuem seu próprio `this`.
+
+
+## Loop For
+- **Descrição**: Usado para iterar sobre uma sequência com um número conhecido de repetições.
+- Exemplo:
+  ```javascript
+  for (let i = 0; i < 5; i++) {
+    console.log(i); // 0, 1, 2, 3, 4
+  }
+  ```
+
+## Loop While
+- **Descrição**: Usado para iterar enquanto uma condição for verdadeira.
+- Exemplo:
+  ```javascript
+  let i = 0;
+  while (i < 5) {
+    console.log(i); // 0, 1, 2, 3, 4
+    i++;
+  }
+  ```

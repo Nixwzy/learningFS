@@ -1066,3 +1066,139 @@ Use `===` sempre que possível para evitar resultados inesperados devido à conv
     i++;
   }
   ```
+
+## Funções em Array
+
+### `push()`
+- **Descrição**: Adiciona um ou mais elementos ao final do array.
+- Exemplo:
+  ```javascript
+  let frutas = ['maçã', 'banana'];
+  frutas.push('laranja');
+  console.log(frutas); // ['maçã', 'banana', 'laranja']
+  ```
+
+### `pop()`
+- **Descrição**: Remove o último elemento do array e o retorna.
+- Exemplo:
+  ```javascript
+  let frutas = ['maçã', 'banana', 'laranja'];
+  let ultimaFruta = frutas.pop();
+  console.log(ultimaFruta); // 'laranja'
+  console.log(frutas); // ['maçã', 'banana']
+  ```
+
+### `shift()`
+- **Descrição**: Remove o primeiro elemento do array e o retorna.
+- Exemplo:
+  ```javascript
+  let frutas = ['maçã', 'banana'];
+  let primeiraFruta = frutas.shift();
+  console.log(primeiraFruta); // 'maçã'
+  console.log(frutas); // ['banana']
+  ```
+
+### `unshift()`
+- **Descrição**: Adiciona um ou mais elementos ao início do array.
+- Exemplo:
+  ```javascript
+  let frutas = ['banana'];
+  frutas.unshift('maçã');
+  console.log(frutas); // ['maçã', 'banana']
+  ```
+
+### `map()`
+- **Descrição**: Cria um novo array com os resultados da aplicação de uma função em cada elemento.
+- Exemplo:
+  ```javascript
+  let numeros = [1, 2, 3];
+  let dobrados = numeros.map(x => x * 2);
+  console.log(dobrados); // [2, 4, 6]
+  ```
+
+### `filter()`
+- **Descrição**: Cria um novo array com todos os elementos que passam no teste de uma função.
+- Exemplo:
+  ```javascript
+  let numeros = [1, 2, 3, 4];
+  let pares = numeros.filter(x => x % 2 === 0);
+  console.log(pares); // [2, 4]
+  ```
+
+### `reduce()`
+- **Descrição**: Reduz o array a um único valor, aplicando uma função acumuladora.
+- Exemplo:
+  ```javascript
+  let numeros = [1, 2, 3, 4];
+  let soma = numeros.reduce((acumulador, valorAtual) => acumulador + valorAtual, 0);
+  console.log(soma); // 10
+  ```
+
+### `forEach()`
+- **Descrição**: Executa uma função para cada elemento do array (não retorna um novo array).
+- Exemplo:
+  ```javascript
+  let numeros = [1, 2, 3];
+  numeros.forEach(x => console.log(x)); // 1, 2, 3
+  ```
+
+### `find()`
+- **Descrição**: Retorna o primeiro elemento que satisfaz a condição de uma função.
+- Exemplo:
+  ```javascript
+  let numeros = [1, 2, 3, 4];
+  let encontrado = numeros.find(x => x > 2);
+  console.log(encontrado); // 3
+  ```
+
+### `join()`
+- **Descrição**: Concatena todos os elementos de um array em uma única string, separados por um delimitador especificado (por padrão, uma vírgula).
+- Exemplo:
+  ```javascript
+  let frutas = ['maçã', 'banana', 'laranja'];
+  let listaFrutas = frutas.join(', ');
+  console.log(listaFrutas); // 'maçã, banana, laranja'
+  ```
+  
+### `sort()`
+- **Descrição**: Ordena os elementos de um array in place (ou seja, modifica o array original). Por padrão, ordena os elementos como strings em ordem alfabética.
+- Exemplo com **strings**:
+  ```javascript
+  let frutas = ['laranja', 'banana', 'maçã'];
+  frutas.sort();
+  console.log(frutas); // ['banana', 'laranja', 'maçã']
+  ```
+- Exemplo com **números** (não funciona):
+  ```javascript
+  let numeros = [10, 5, 20, 2];
+  numeros.sort(); 
+  console.log(numeros); // [10, 2, 20, 5] (ordem alfabética de strings, não numérica)
+  ```
+- Exemplo de ordenação funcional com **números**:
+
+  ```javascript
+  numeros.sort((a, b) => a - b); // Ordem crescente
+  console.log(numeros); // [2, 5, 10, 20]
+  ```
+   ```javascript
+  numeros.sort((a, b) => b - a); // Ordem descrescente
+  console.log(numeros); // [20, 10, 5, 2]
+  ```
+- Exemplo de `sort()` com listas/objetos:
+  ```javascript
+  let cars = [
+    { brand: "Fiat", year: 2022 },
+    { brand: "BMW", year: 2018 },
+    { brand: "Ferrari", year: 2020 }
+  ];
+
+  // Crescente
+  cars.sort((a, b) => a.year - b.year);
+  console.log()
+
+   // Decrescente
+  cars.sort((a, b) => b.year - a.year);
+  console.log()
+
+
+

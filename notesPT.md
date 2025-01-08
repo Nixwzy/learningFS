@@ -1200,5 +1200,190 @@ Use `===` sempre que possível para evitar resultados inesperados devido à conv
   cars.sort((a, b) => b.year - a.year);
   console.log()
 
+## POO em JavaScript
+
+A Programação Orientada a Objetos (POO) em JavaScript permite estruturar e organizar o código de forma mais modular e reutilizável. 
+Com o uso de classes, herança e métodos, é possível representar entidades do mundo real em objetos no código.
+
+### Classes e seus métodos
+- **Constructor e This**: O método `constructor` é usado para inicializar um objeto com propriedades específicas. 
+  O `this` refere-se ao contexto atual da instância da classe. <br><br>**Importante:** Em JavaScript (e em muitas outras linguagens orientadas a objetos), é uma convenção nomear classes começando com letra maiúscula (PascalCase). Essa prática ajuda a diferenciar classes de outras estruturas, como funções e variáveis
+
+
+```javascript
+  // Definindo a classe Person
+  class Person {
+    // O método constructor é chamado automaticamente ao criar uma nova instância da classe
+    constructor(name, age) {
+      // 'this.name' e 'this.age' criam propriedades na instância do objeto
+      // 'name' e 'age' são parâmetros recebidos ao criar a instância
+      this.name = name; // Define o nome da pessoa
+      this.age = age;   // Define a idade da pessoa
+    }
+  }
+  
+  // Criando instâncias da classe Person
+  // A criação de um objeto a partir de uma classe é chamada de instância. Isso é feito utilizando a palavra-chave: 'new'.
+  let p1 = new Person("Guilherme", 21);
+  let p2 = new Person("Hellen", 20);   
+  let p3 = new Person("Genivaldo", 50);
+
+  console.log(`P1 = ${p1.name} tem ${p1.age} anos`); // script.js:17 P1 = Guilherme tem 21 anos
+  console.log(`P2 = ${p2.name} tem ${p2.age} anos`); // script.js:18 P2 = Hellen tem 20 anos
+  console.log(`P3 = ${p3.name} tem ${p3.age} anos`); // script.js:19 P3 = Genivaldo tem 50 anos
+  ```
+  
+- **Ação (Métodos)**: Métodos são funções definidas dentro de uma classe para realizar ações específicas nos objetos.
+
+```javascript
+  class Person {
+  age = 0;  // Inicializando a propriedade 'age' com valor padrão 0
+  steps = 0; // Inicializando a propriedade 'steps' com valor padrão 0
+
+  constructor(name) {
+    this.name = name;
+  }
+
+  stepForward() { // Função para adicionar passos à instância
+    this.steps++;
+  }
+
+  setAge(newAge) { // Função para adicionar idade à instância
+    if (typeof newAge == "number") {
+      this.age = newAge;
+    } else {
+      console.log("Idade não é um número.");
+    }
+  }
+}
+
+let p1 = new Person("Guilherme", 21);
+let p2 = new Person("Hellen", 20);
+let p3 = new Person("Genivaldo", 50);
+
+p1.setAge(20); // Configurando a idade da instância 'p1' usando o método 'setAge'
+p1.stepForward(); // Incrementando os passos da instância 'p1' usando o método 'stepForward'
+console.log(`${p1.name} tem ${p1.age} anos e deu ${p1.steps} passo(s).`); // Saída: "Guilherme tem 20 anos e deu 1 passo(s)."
+```
+  
+- **Getter e Setter**: Getters permitem acessar propriedades privadas ou protegidas, enquanto setters permitem alterá-las de forma controlada.
+```javascript
+class Person {
+  _age = 20; // A variável '_age' é usada como uma propriedade privada por convenção, sendo acessada e modificada através de getters e setters.
+  steps = 0;
+
+  constructor(firstName, lastName) {
+    // 'firstName' e 'lastName' foram escolhidos para representar o nome e sobrenome separadamente, facilitando combinações e manipulações.
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  // Getter para 'fullName': permite acessar o nome completo da pessoa combinando o nome e sobrenome.
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  // Getter para 'age': retorna o valor da propriedade '_age' (considerada "privada").
+  get age() {
+    return this._age;
+  }
+
+  // Setter para 'age': define um novo valor para '_age'. É útil para controlar ou validar alterações na propriedade.
+  set age(x) {
+    this._age = x; // Atualiza '_age' com o valor recebido.
+  }
+}
+
+// Criando instâncias da classe Person
+let p1 = new Person("Guilherme", "Lopes");
+let p2 = new Person("Hellen", "Lopes");
+let p3 = new Person("Genivaldo", "Lopes");
+
+// Modificando a idade da instância 'p1' usando o setter 'age'
+p1.age = 20; // Define a idade de Guilherme como 20.
+
+// Exibindo informações de 'p1' com o getter 'fullName' e 'age'
+console.log(`${p1.fullName} tem ${p1.age} anos.`);
+// Saída: "Guilherme Lopes tem 20 anos."
+```
+- **Herança**: Classes podem herdar propriedades e métodos de outras classes usando a palavra-chave `extends`. Isso promove reuso de código.
+```javascript
+  class Person {
+  age = 0; // Propriedade 'age' inicializada com o valor padrão 0
+
+  constructor(name) {
+    this.name = name; // Define o nome da pessoa ao criar a instância
+  }
+
+  greet() {
+    console.log(`${this.name} diz Olá!`); // Método para exibir uma saudação personalizada
+  }
+}
+
+class Student extends Person {
+  constructor(name, id) {
+    // O método 'super' é usado para chamar o construtor da classe pai (Person)
+    // Isso permite inicializar a propriedade 'name' definida na classe pai
+    super(name);
+    this.id = id; // Adiciona a propriedade 'id', exclusiva da classe Student
+  }
+}
+
+// Criando uma instância da classe Student, que herda de Person
+let p1 = new Student("Guilherme", 1); // A instância inclui 'name' da classe pai e 'id' da classe atual
+p1.age = 21; // A propriedade 'age' é acessível porque foi herdada da classe pai (Person)
+
+// Chamando o método 'greet', herdado da classe pai
+p1.greet(); // Saída: "Guilherme diz Olá!"
+
+// Exibindo as informações da instância 'p1', incluindo propriedades herdadas e definidas na classe Student
+console.log(`${p1.name} tem ${p1.age} anos e matrícula #${p1.id}`);
+// Saída: "Guilherme tem 21 anos e matrícula #1"
+```
+- **Variável/Método Estático**: Métodos ou variáveis estáticas pertencem à classe em si, e não às instâncias, sendo acessíveis diretamente pela classe.
+```javascript
+class Person {
+  static hands = 2; // Propriedade estática: pertence à classe Person, não às instâncias.
+  age = 0; // Propriedade de instância: pertence a cada objeto criado.
+
+  constructor(name) {
+    this.name = name; // Define o nome da pessoa ao criar a instância.
+  }
+
+  say() {
+    // Acessa a propriedade estática 'hands' diretamente pela classe Person.
+    console.log(`Oi, eu sou ${this.name} e tenho ${Person.hands} mãos.`);
+  }
+}
+
+let p1 = new Person("Guilherme"); // Cria uma instância de Person com o nome "Guilherme".
+p1.hands = 1000; // Esta linha **não altera** a propriedade estática 'hands'.
+// Em vez disso, cria uma nova propriedade 'hands' **na instância 'p1'**, mas ela não afeta a propriedade estática da classe.
+
+p1.say(); // Saída: "Oi, eu sou Guilherme e tenho 2 mãos."
+```
+- **Factory**: Um padrão de projeto que utiliza funções para criar e retornar objetos sem a necessidade de instanciar explicitamente uma classe.
+```javascript
+class Person {
+  age = 0; // Inicializa a propriedade 'age' com o valor padrão 0.
+
+  constructor(name) {
+    this.name = name; // Define o nome da pessoa no momento da criação da instância.
+  }
+}
+
+function createPerson(name, age) {
+  // Função fábrica que cria uma instância da classe Person.
+  let p = new Person(name); // Cria uma nova instância de Person com o nome fornecido.
+  p.age = age; // Define a idade da pessoa criada.
+  return p; // Retorna a instância criada.
+}
+
+let p1 = createPerson("Guilherme", 21); // Cria uma nova pessoa chamada 'Guilherme' com 21 anos.
+
+console.log(`${p1.name} tem ${p1.age} anos.`); // Saída: "Guilherme tem 21 anos."
+```
+
+
 
 

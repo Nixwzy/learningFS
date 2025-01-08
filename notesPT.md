@@ -1268,43 +1268,32 @@ console.log(`${p1.name} tem ${p1.age} anos e deu ${p1.steps} passo(s).`); // Sa�
   
 - **Getter e Setter**: Getters permitem acessar propriedades privadas ou protegidas, enquanto setters permitem alterá-las de forma controlada.
 ```javascript
-class Person {
-  _age = 20; // A variável '_age' é usada como uma propriedade privada por convenção, sendo acessada e modificada através de getters e setters.
-  steps = 0;
+var _v = 0;  // Variável privada para armazenar o valor de 'v'
 
-  constructor(firstName, lastName) {
-    // 'firstName' e 'lastName' foram escolhidos para representar o nome e sobrenome separadamente, facilitando combinações e manipulações.
-    this.firstName = firstName;
-    this.lastName = lastName;
-  }
+// Definindo o objeto 'obj' com um getter e setter para a propriedade 'v'
+var obj = {
+  // Getter: método para acessar o valor de 'v' de forma personalizada
+  get v() {
+    // Retorna o valor de '_v' formatado como uma string
+    return "Value: " + _v;  
+  },
 
-  // Getter para 'fullName': permite acessar o nome completo da pessoa combinando o nome e sobrenome.
-  get fullName() {
-    return `${this.firstName} ${this.lastName}`;
-  }
+  // Setter: método para definir o valor de 'v' de forma personalizada
+  set v(value) {
+    // Modifica o valor de '_v', multiplicando o valor atribuído por 2
+    _v = value * 2;
+  },
+};
 
-  // Getter para 'age': retorna o valor da propriedade '_age' (considerada "privada").
-  get age() {
-    return this._age;
-  }
+// Acessando a propriedade 'v' usando o getter (não é necessário parênteses)
+console.log(obj.v);  // Saída: "Value: 0" - O getter é chamado, retornando "Value: " concatenado com o valor de '_v' (0)
 
-  // Setter para 'age': define um novo valor para '_age'. É útil para controlar ou validar alterações na propriedade.
-  set age(x) {
-    this._age = x; // Atualiza '_age' com o valor recebido.
-  }
-}
+// Atribuindo um valor à propriedade 'v', o setter é chamado
+obj.v = 5;  // O setter é chamado, o valor de 5 é multiplicado por 2 e atribuído a '_v' (resultando em 10)
 
-// Criando instâncias da classe Person
-let p1 = new Person("Guilherme", "Lopes");
-let p2 = new Person("Hellen", "Lopes");
-let p3 = new Person("Genivaldo", "Lopes");
+// Acessando novamente a propriedade 'v' com o getter após a modificação
+console.log(obj.v);  // Saída: "Value: 10" - O getter retorna "Value: " concatenado com o novo valor de '_v' (10)
 
-// Modificando a idade da instância 'p1' usando o setter 'age'
-p1.age = 20; // Define a idade de Guilherme como 20.
-
-// Exibindo informações de 'p1' com o getter 'fullName' e 'age'
-console.log(`${p1.fullName} tem ${p1.age} anos.`);
-// Saída: "Guilherme Lopes tem 20 anos."
 ```
 - **Herança**: Classes podem herdar propriedades e métodos de outras classes usando a palavra-chave `extends`. Isso promove reuso de código.
 ```javascript

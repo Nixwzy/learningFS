@@ -1372,6 +1372,284 @@ let p1 = createPerson("Guilherme", 21); // Cria uma nova pessoa chamada 'Guilher
 
 console.log(`${p1.name} tem ${p1.age} anos.`); // Saída: "Guilherme tem 21 anos."
 ```
+## Introdução a Requisições
+
+### Requisições
+Requisições são solicitações enviadas de um cliente para um servidor, geralmente com o objetivo de obter ou enviar dados. No contexto do desenvolvimento web, isso pode envolver a comunicação entre navegadores, servidores e APIs.
+
+### Síncrono e Assíncrono
+- **Síncrono**: A execução do código espera que a operação atual termine antes de passar para a próxima. Isso pode levar a travamentos em processos longos.
+- **Assíncrono**: O código pode continuar sendo executado enquanto espera pela conclusão de uma operação, melhorando o desempenho e a experiência do usuário.
+
+### O que é uma API?
+API (Application Programming Interface) é uma interface que permite a comunicação entre diferentes sistemas. No desenvolvimento web, APIs são usadas para acessar funcionalidades ou dados externos.
+
+## Callbacks
+Callbacks são funções passadas como argumento para outras funções, permitindo a execução de código após a conclusão de uma operação. Isso é comum em operações assíncronas, como requisições a servidores.
+
+```javascript
+// Exemplo de Callback
+function fetchData(callback) {
+  setTimeout(() => {
+    console.log("Dados recebidos");
+    callback();
+  }, 1000);
+}
+
+fetchData(() => {
+  console.log("Processando os dados recebidos");
+});
+```
+
+## Requisições HTTP através da função `fetch`
+A função fetch é uma API nativa do JavaScript usada para realizar requisições HTTP de forma assíncrona. Ela permite que você envie e receba dados de servidores de maneira eficiente e simplificada.
+
+```javascript
+function fetchExample() {
+  fetch('https://jsonplaceholder.typicode.com/posts') // Envia uma requisição e retorna uma promise
+    
+  .then((data) => { // Espera a promise e executa
+      console.log(data) // Saída: Response
+  })
+}
+```
+
+### `.catch` e `.finally`
+- `.catch`: Identifica erros.
+- `.finally`: Indica o final da requisição (ou realiza alguma outra tarefa final).
+```javascript
+function clicou() {
+  fetch('https://jsonplaceholder.typicode.com/err0r') // Url errada
+    .then((response) => {
+      return response.json();
+    })
+    .then((json) => {
+      console.log(json[0].title);
+    })
+    .catch((error) => {
+      console.log('Erro:', error); // Identifica o erro
+    })
+    .finally(() => {
+      console.log('Final da requisição') // Executa no final da requisição
+    })
+}
+
+document.querySelector('#botao').addEventListener('click', clicou);
+```
+
+
+## Nota Importante sobre Variáveis com elementos HTML
+É importante ressaltar que quando uma variável interage com algum elemento HTML dentro do projeto, deve-se utilizar um cifrão `$` para chamar essa variável. Exemplo:
+```javascript
+// Neste caso, quero selecionar um elemento de botão dentro do meu arquivo HTML.
+
+const $botao = document.querySelector('.botao');
+```
+
+## Métodos de requisição HTTP: GET, POST, PUT e DELETE
+
+Os métodos HTTP são utilizados para comunicação entre o cliente (navegador ou aplicação) e o servidor. Aqui estão os quatro métodos mais comuns:
+
+- **GET**: Usado para recuperar informações do servidor. Este método solicita dados e não realiza alterações no lado do servidor.
+  - Exemplo: Buscar lista de usuários de um banco de dados.
+
+- **POST**: Usado para enviar dados ao servidor, geralmente para criar novos recursos. Este método frequentemente inclui informações no corpo da requisição.
+  - Exemplo: Registrar um novo usuário.
+
+- **PUT**: Usado para atualizar ou substituir um recurso existente no servidor. Requer a identificação do recurso a ser modificado.
+  - Exemplo: Atualizar o e-mail de um usuário.
+
+- **DELETE**: Usado para remover um recurso específico do servidor.
+  - Exemplo: Deletar um usuário de uma lista.
+
+Esses métodos, quando utilizados em conjunto com APIs REST, formam a base para a construção de sistemas web modernos.
+
+"""
+## Métodos de Strings
+
+### Manipulação e Análise de Strings
+- **charAt(index)**: Retorna o caractere no índice especificado.
+- **concat(str1, str2, ...)**: Junta duas ou mais strings.
+- **includes(substring)**: Verifica se a string contém a substring especificada.
+- **indexOf(substring)**: Retorna o índice da primeira ocorrência da substring.
+- **lastIndexOf(substring)**: Retorna o índice da última ocorrência da substring.
+- **slice(start, end)**: Extrai parte de uma string entre os índices especificados.
+- **substring(start, end)**: Similar ao slice, mas não aceita índices negativos.
+- **toLowerCase()**: Converte a string para letras minúsculas.
+- **toUpperCase()**: Converte a string para letras maiúsculas.
+- **trim()**: Remove espaços em branco do início e fim da string.
+- **replace(searchValue, newValue)**: Substitui parte da string por outra.
+- **split(separator)**: Divide a string em um array com base no separador.
+
+## Métodos de Arrays
+
+### Manipulação e Iteração
+- **push(element)**: Adiciona um ou mais elementos ao final do array.
+- **pop()**: Remove o último elemento do array.
+- **shift()**: Remove o primeiro elemento do array.
+- **unshift(element)**: Adiciona um ou mais elementos ao início do array.
+- **splice(start, deleteCount, items)**: Adiciona ou remove elementos em qualquer posição.
+- **slice(start, end)**: Retorna uma cópia superficial de uma parte do array.
+- **indexOf(element)**: Retorna o índice da primeira ocorrência do elemento.
+- **lastIndexOf(element)**: Retorna o índice da última ocorrência do elemento.
+- **includes(element)**: Verifica se o array contém o elemento especificado.
+
+### Iteração e Transformação
+- **forEach(callback)**: Executa uma função para cada elemento.
+- **map(callback)**: Cria um novo array com os resultados de aplicar uma função a cada elemento.
+- **filter(callback)**: Retorna um novo array contendo apenas os elementos que passam em uma condição.
+- **reduce(callback, initialValue)**: Reduz o array a um único valor.
+- **find(callback)**: Retorna o primeiro elemento que satisfaz a condição.
+- **findIndex(callback)**: Retorna o índice do primeiro elemento que satisfaz a condição.
+
+### Outras Operações
+- **join(separator)**: Junta todos os elementos do array em uma string.
+- **reverse()**: Inverte a ordem dos elementos do array.
+- **sort(compareFunction)**: Ordena os elementos do array.
+- **every(callback)**: Verifica se todos os elementos passam na condição.
+- **some(callback)**: Verifica se ao menos um elemento passa na condição.
+
+## Datas
+
+JavaScript utiliza o objeto **`Date`** para manipulação de datas e horas. Abaixo estão os métodos mais importantes para trabalhar com datas, acompanhados de exemplos.
+
+### Criando um Objeto Date
+```javascript
+// Data atual
+const now = new Date();
+console.log(now);
+
+// Data específica (Ano, Mês [0-11], Dia, Hora, Minuto, Segundo, Milissegundo)
+const specificDate = new Date(2025, 0, 9, 15, 30, 0); // 9 de Janeiro de 2025, 15:30
+console.log(specificDate);
+
+// Criando uma data a partir de uma string (padrão ISO 8601 ou outros formatos)
+const fromString = new Date("2025-01-09T15:30:00");
+console.log(fromString);
+
+```
+
+### Métodos para Obter Informações de uma Data
+```javascript
+const date = new Date();
+
+// Obtendo partes da data
+console.log(date.getFullYear()); // Ano (ex: 2025)
+console.log(date.getMonth()); // Mês (0-11, onde 0 é Janeiro)
+console.log(date.getDate()); // Dia do mês (1-31)
+console.log(date.getDay()); // Dia da semana (0-6, onde 0 é Domingo)
+console.log(date.getHours()); // Hora (0-23)
+console.log(date.getMinutes()); // Minutos (0-59)
+console.log(date.getSeconds()); // Segundos (0-59)
+console.log(date.getMilliseconds()); // Milissegundos (0-999)
+console.log(date.getTime()); // Timestamp (milissegundos desde 1 Jan 1970)
+
+```
+
+### Métodos para Definir Informações de uma Data
+```javascript
+const date = new Date();
+
+// Alterando partes da data
+date.setFullYear(2026);
+date.setMonth(11); // Dezembro
+date.setDate(25); // Dia 25
+date.setHours(10, 30, 0); // Hora, Minuto, Segundo
+
+console.log(date); // 25 de Dezembro de 2026, 10:30:00
+```
+
+### Formatando Datas
+```javascript
+const date = new Date();
+
+// Convertendo para string legível
+console.log(date.toString()); // Formato completo
+console.log(date.toDateString()); // Apenas data
+console.log(date.toTimeString()); // Apenas hora
+console.log(date.toISOString()); // Formato ISO 8601
+console.log(date.toLocaleDateString("pt-BR")); // Data no formato local
+console.log(date.toLocaleTimeString("pt-BR")); // Hora no formato local
+```
+
+### Operações com Datas
+```javascript
+const start = new Date("2025-01-01");
+const end = new Date("2025-01-09");
+
+// Diferença em milissegundos
+const diffMs = end - start;
+console.log(diffMs);
+
+// Convertendo para dias
+const diffDays = diffMs / (1000 * 60 * 60 * 24);
+console.log(diffDays);
+```
+
+## Objeto Math em JavaScript
+
+O objeto Math em JavaScript oferece uma variedade de métodos e propriedades úteis para cálculos matemáticos. Ele é amplamente utilizado para operações como arredondamento, geração de números aleatórios, trigonometria e muito mais.
+
+## Métodos mais utilizados
+
+### Arredondamento
+```javascript
+console.log(Math.round(4.7)); // Arredonda para o inteiro mais próximo (5)
+console.log(Math.ceil(4.3)); // Arredonda para cima (5)
+console.log(Math.floor(4.7)); // Arredonda para baixo (4)
+console.log(Math.trunc(4.7)); // Remove a parte decimal (4)
+```
+
+### Números Aleatórios
+```javascript
+console.log(Math.random()); // Retorna um número entre 0 (inclusivo) e 1 (exclusivo)
+console.log(Math.random() * 10); // Número entre 0 e 10
+console.log(Math.floor(Math.random() * 100)); // Inteiro entre 0 e 99
+```
+
+### Máximo e Mínimo
+```javascript
+console.log(Math.max(10, 20, 30)); // Retorna o maior número (30)
+console.log(Math.min(10, 20, 30)); // Retorna o menor número (10)
+
+```
+
+### Potência e Raiz
+```javascript
+console.log(Math.pow(2, 3)); // Potência (2³ = 8)
+console.log(Math.sqrt(16)); // Raiz quadrada (4)
+console.log(Math.cbrt(27)); // Raiz cúbica (3)
+```
+
+### Valores Absolutos
+```javascript
+console.log(Math.abs(-10)); // Retorna o valor absoluto (10)
+```
+
+### Funções Trigonométricas
+```javascript
+console.log(Math.sin(Math.PI / 2)); // Seno de 90 graus (1)
+console.log(Math.cos(Math.PI)); // Cosseno de 180 graus (-1)
+console.log(Math.tan(Math.PI / 4)); // Tangente de 45 graus (1)
+```
+
+
+### Logaritmos
+```javascript
+console.log(Math.log(1)); // Logaritmo natural de 1 (0)
+console.log(Math.log10(100)); // Logaritmo de base 10 de 100 (2)
+console.log(Math.log2(8)); // Logaritmo de base 2 de 8 (3)
+```
+
+
+## Constantes Importantes
+```javascript
+console.log(Math.PI); // Valor de PI (3.141592653589793)
+console.log(Math.E); // Base do logaritmo natural (2.718281828459045)
+console.log(Math.LN2); // Logaritmo natural de 2 (0.693)
+console.log(Math.SQRT2); // Raiz quadrada de 2 (1.414)
+```
+
 
 
 

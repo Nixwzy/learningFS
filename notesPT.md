@@ -1650,7 +1650,179 @@ console.log(Math.LN2); // Logaritmo natural de 2 (0.693)
 console.log(Math.SQRT2); // Raiz quadrada de 2 (1.414)
 ```
 
+# Curso de TypeScript
+
+## Types Primitivos em TypeScript
+
+### 1. number
+Representa números, incluindo inteiros e decimais. Não distingue entre inteiros e números de ponto flutuante.
+```typescript
+let idade: number = 25;
+let temperatura: number = -10.5;
+```
+
+### 2. string
+Representa texto. Strings podem ser delimitadas por aspas simples ('), aspas duplas (") ou crases (`) para templates.
+
+```typescript
+let nome: string = "Alice";
+let mensagem: string = `Olá, ${nome}!`;
+```
+
+### 3. boolean
+Representa valores lógicos: true ou false.
+
+```typescript
+let ativo: boolean = true;
+let finalizado: boolean = false;
+```
+
+### 4. null
+Representa um valor nulo.
+
+```typescript
+let valor: null = null;
+```
+
+### 5. undefined
+Representa uma variável que ainda não foi atribuída.
+
+```typescript
+let indefinido: undefined = undefined;
+```
+
+### 6. bigint
+Representa números inteiros muito grandes. É indicado pelo sufixo n.
+
+```typescript
+let grandeNumero: bigint = 123456789123456789123456789n;
+```
+
+### 7. symbol
+Representa um identificador único.
+
+```typescript
+let simbolo: symbol = Symbol("id");
+```
+
+### Diferença entre null e undefined:
+- null é um valor explicitamente vazio.
+- undefined indica que algo ainda não foi definido.
 
 
+### Uso em Tipagem Opcional
+TypeScript permite combinar tipos primitivos usando **union types:**
+```typescript
+let resultado: string | number;
+resultado = "Sucesso"; // válido
+resultado = 200; // válido
+```
+
+Esses tipos ajudam a evitar erros comuns e fornecem maior segurança durante o desenvolvimento.
+
+### Type em Arrays
+No TypeScript, arrays podem armazenar múltiplos valores do mesmo tipo. Você pode especificar o tipo dos elementos dentro de um array de várias formas. Aqui estão alguns dos métodos mais comuns de definir tipos para arrays:
+
+```typescript
+let numeros: number[] = [1, 2, 3, 4, 5];
+```
+**Tipo genérico:**
+```typescript
+let numeros: Array<number> = [1, 2, 3, 4, 5];
+```
+
+### Types em parâmetros de função
+```typescript
+function saudacao(nome: string) {
+    return `Olá, ${nome}!`;
+}
+
+let mensagem = saudacao("Hellen");
+
+```
+### Types no retorno de função
+```typescript
+function saudacao(nome: string): string {
+    return `Olá, ${nome}!`;
+}
+
+let mensagem = saudacao("Hellen"); 
+```
+### Propriedades Opcionais em TypeScript
+```typescript
+interface Usuario {
+    nome: string;
+    idade?: number; // Propriedade opcional '?'
+}
+
+const usuario1: Usuario = { nome: "Hellen" };
+const usuario2: Usuario = { nome: "Guilherme", idade: 21 };
+
+console.log(usuario1); // { nome: "Hellen" }
+console.log(usuario2); // { nome: "Guilherme", idade: 21 }
+```
+## Definir Types e Interfaces
+
+Em TypeScript, tanto `types` quanto `interfaces` são usados para definir a estrutura de *dados*, como **objetos**, **funções** ou **tipos** de variáveis. Ambos ajudam a garantir que os dados sejam estruturados corretamente e que seu uso seja seguro em tempo de compilação. Embora ambos desempenhem funções semelhantes, existem diferenças importantes entre eles.
+
+- `type`
+O type é uma maneira de criar um alias para um tipo ou uma combinação de tipos. Você pode usar **type** para definir tipos simples ou tipos compostos, como uniões, interseções e tipos literais.
+
+Exemplo de uso básico de type:
+
+```typescript
+type Usuario = {
+    nome: string;
+    idade: number;
+}
+
+const usuario: Usuario = { nome: "Maria", idade: 25 };
+
+```
+
+`interface`
+A interface é usada principalmente para definir a estrutura de objetos e pode ser extendida ou implementada por outras interfaces ou classes. Ela é mais adequada para descrever objetos e suas propriedades.
+
+Exemplo de uso básico de interface:
+```typescript
+interface Usuario {
+    nome: string;
+    idade: number;
+}
+
+const usuario: Usuario = { nome: "João", idade: 28 };
+
+```
+### Diferenças entre type e interface
+
+1. **Extensão:**
+   - `Interface` pode ser **extendida**, ou seja, você pode criar novas interfaces baseadas em outras existentes usando `extends`.
+   - `Type` não pode ser estendido diretamente, mas **pode ser combinado usando interseção de tipos (&).**
+
+2. **Declaração Múltipla:**
+   - `Interface` permite **múltiplas declarações** com o mesmo nome. Elas são mescladas automaticamente, permitindo a modificação ou adição de propriedades.
+   - `Type` não permite declarações múltiplas com o mesmo nome. Se você tentar, obterá um erro.
+
+3. **Usabilidade:**
+   - `Interface` é mais usada para **definir objetos e pode ser implementada por classes.**
+   - `Type` é mais flexível e pode ser usado para **tipos primitivos, literais, funções,** e até mesmo **uniões e interseções**.
+
+**Quando Usar:**
+
+- Use 'interface' quando estiver lidando com objetos que precisam ser extensíveis ou quando quiser garantir uma estrutura que pode ser implementada por classes.
+- Use 'type' quando precisar de tipos mais complexos, como uniões, interseções ou tipos literais.
+
+### Declarando Types em Funções
+
+```typescript
+type MathFunction = (n1: number, n2: number) => number;
+
+const somar: MathFunction = (n1, n2) => {
+  return n1 + n2;
+}
+
+// Deve ser declarado ao lado do nome da função
+
+```
 
 
